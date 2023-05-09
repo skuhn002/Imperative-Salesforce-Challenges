@@ -2,11 +2,22 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": false
+    },
+    {
+      "path": "AuraChallenge1v2",
+      "package": "AuraChallenge1v2",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": true,
+      "versionDescription": ""
     }
   ],
   "name": "ImperativeSalesforceChallenges",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "56.0"
+  "sourceApiVersion": "56.0",
+  "packageAliases": {
+    "AuraChallenge1v2": "0Ho8b000000oLt3CAE"
+  }
 }
