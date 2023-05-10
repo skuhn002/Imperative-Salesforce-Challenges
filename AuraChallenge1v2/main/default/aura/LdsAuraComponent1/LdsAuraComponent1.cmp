@@ -1,3 +1,9 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
-    Hello from my new LDS Aura component
+    <aura:attribute name="fields" type="String[]" default="['Name','AnnualRevenue','Industry']" />
+    <h1>Create an Account</h1>
+    <div class="createForm">
+        <lightning:recordForm objectApiName="Account" fields="{!v.fields}">
+        </lightning:recordForm>
+    </div>
 </aura:component>	
+    
