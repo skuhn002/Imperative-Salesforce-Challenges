@@ -7,10 +7,7 @@
 
     <div class="section">
         <h1 class="card-title">Create an Account</h1>
-        <lightning:recordForm
-            objectApiName="Account"
-            fields="{!v.fields}"
-            onsuccess="{!c.handleCreateAccount}">
+        <lightning:recordForm objectApiName="Account" fields="{!v.fields}">
         </lightning:recordForm>
     </div>
 
