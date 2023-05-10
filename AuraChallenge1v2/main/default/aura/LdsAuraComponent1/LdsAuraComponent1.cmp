@@ -1,9 +1,23 @@
-<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AuraAccountsController">
+
     <aura:attribute name="fields" type="String[]" default="['Name','AnnualRevenue','Industry']" />
-    <h1>Create an Account</h1>
-    <div class="createForm">
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="accounts" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <div class="section">
+        <h1 class="card-title">Create an Account</h1>
         <lightning:recordForm objectApiName="Account" fields="{!v.fields}">
         </lightning:recordForm>
     </div>
-    
+
+    <div class="section">
+        <lightning:datatable
+            data="{!v.accounts}"
+            columns="{!v.columns}"
+            keyField="Id"
+            hideCheckboxColumn="true">
+         </lightning:datatable>
+    </div>
+
 </aura:component>
