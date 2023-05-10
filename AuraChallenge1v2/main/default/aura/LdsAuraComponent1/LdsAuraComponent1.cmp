@@ -5,5 +5,5 @@
         <lightning:recordForm objectApiName="Account" fields="{!v.fields}">
         </lightning:recordForm>
     </div>
-</aura:component>	
     
+</aura:component>
