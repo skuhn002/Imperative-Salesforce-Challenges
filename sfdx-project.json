@@ -9,14 +9,6 @@
       "package": "AuraChallenge1v2",
       "versionName": "ver 0.1",
       "versionNumber": "0.1.0.NEXT",
-      "default": false,
-      "versionDescription": ""
-    },
-    {
-      "path": "AsyncApex1",
-      "package": "AsyncApex1",
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
       "default": true,
       "versionDescription": ""
     }
