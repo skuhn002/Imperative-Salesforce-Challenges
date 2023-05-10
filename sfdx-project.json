@@ -9,6 +9,14 @@
       "package": "AuraChallenge1v2",
       "versionName": "ver 0.1",
       "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
+    },
+    {
+      "path": "AsyncApex1",
+      "package": "AsyncApex1",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
       "default": true,
       "versionDescription": ""
     }
@@ -18,6 +26,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "56.0",
   "packageAliases": {
-    "AuraChallenge1v2": "0Ho8b000000oLt3CAE"
+    "AuraChallenge1v2": "0Ho8b000000oLt3CAE",
+    "AsyncApex1": "0Ho8b000000oLtDCAU"
   }
 }
