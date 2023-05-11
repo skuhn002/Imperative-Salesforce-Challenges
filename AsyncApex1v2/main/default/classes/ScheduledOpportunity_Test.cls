@@ -1,5 +1,7 @@
 @isTest
 public with sharing class ScheduledOpportunity_Test {
+
+
     @TestSetup
     static void makeData(){
         Opportunity o1 = new Opportunity(
@@ -16,14 +18,26 @@ public with sharing class ScheduledOpportunity_Test {
         );
 
         Datetime tooOld = Datetime.now().addMonths(-6);
-        // Test.setCreatedDate(o2, tooOld);
         insert o2;
+        Test.setCreatedDate(o2.Id, tooOld);
     }
+
+
+
+
+
+
 
     @isTest
     public static void deleteOldOpps(){
-        ScheduledOpportunity apexClass = new ScheduledOpportunity(); 
+        List<Opportunity> oppsBefore = [SELECT createdDate, stageName FROM Opportunity];
+        System.assertEquals(2, oppsBefore.size());
+
+        ScheduledOpportunity apexClass = new ScheduledOpportunity();
+        String scheduleWhen = '0 0 0 5 11 ? 2023';
         
-        // System.execute('Apex Test Delete Opportunities', scheduleWhen, apexClass);
+        Test.startTest();
+        // String jobId = System.execute('Apex Test Delete Opportunities', scheduleWhen, apexClass);
+        Test.stopTest();
     }
 }

@@ -1,16 +1,14 @@
-public with sharing class BatchableOpportunity implements Database.Batchable<Opportunity> {
-    public List<Opportunity> start(Database.BatchableContext BC){
-        return [SELECT Id, createdDate FROM Opportunity WHERE NOT stageName LIKE 'Closed%'];
+public with sharing class BatchableOpportunity implements Database.Batchable<sObject> {
+
+    public Database.QueryLocator start(Database.BatchableContext BC){
+        return Database.getQueryLocator('SELECT Id, createdDate, isClosed, lastModifiedDate FROM Opportunity WHERE isClosed = false AND lastModifiedDate < LAST_N_MONTHS:6');
     }
 
-    public void execute(Database.BatchableContext BC, List<Opportunity> opps){
+    public void execute(Database.BatchableContext BC, List<SObject> opps){
         List<Opportunity> deleteOpps = new List<Opportunity>();
-        Date nowDate = Date.today();
 
-        for(Opportunity o : opps){
-            if(o.createdDate.date().monthsBetween(nowDate) >= 6){
-                deleteOpps.add(o);
-            }
+        for(sObject o : opps){
+            deleteOpps.add((Opportunity) o);
         }
         Database.delete(deleteOpps, false);
     }
